@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.note {
+    color: white;
+    opacity: 0;
+    pointer-events: none; /* جلوگیری از تداخل کلیک روی نت‌ها */
+}
+
+@keyframes move {
+    0% {
+        opacity: 1;
+        transform: translate(-100px, 0); /* شروع از چپ‌ترین قسمت */
+    }
+    50% {
+        opacity: 1;
+        transform: translate(50vw, 20vh); /* حرکت به سمت مرکز */
+    }
+    100% {
+        opacity: 0; /* محو شدن */
+        transform: translate(100vw, 40vh); /* حرکت به سمت راست */
+    }
+}
+
+.animate-note {
+    animation: move 12s linear infinite;
+}
