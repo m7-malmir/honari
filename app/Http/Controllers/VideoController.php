@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Video;
 
 class VideoController extends Controller
 {
@@ -11,7 +11,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $videos = Video::with('category')->orderBy('created_at', 'desc')->get();
+        return view('videos.index', compact('videos'));
     }
 
     /**

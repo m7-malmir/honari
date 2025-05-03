@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusicController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\VideoController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +20,12 @@ use Illuminate\Support\Facades\Session;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
+
+
+
 Route::get('lang/{locale}', function ($locale) {
     if (!in_array($locale, ['en', 'fa'])) {
         abort(400);

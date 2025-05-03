@@ -7,7 +7,7 @@
         <nav>
             <ul class="hidden md:flex md:space-x-4 text-center text-white">
                 <li><a href="/" class="hover:text-blue-300">{{ __('menu.home') }}</a></li>
-                <li><a href="/gallery" class="hover:text-blue-300">{{ __('menu.gallery') }}</a></li>
+
                 <li><a href="/videos" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
                 <li><a href="/musics" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
                 <li><a href="/education" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
@@ -22,7 +22,6 @@
             <div class="hidden mobile-menu bg-blue-800 text-white p-4 absolute z-50 right-4 top-16 rounded shadow-lg">
                 <ul class="space-y-2">
                     <li><a href="/" class="block hover:text-blue-300">{{ __('menu.home') }}</a></li>
-                    <li><a href="/gallery" class="block hover:text-blue-300">{{ __('menu.gallery') }}</a></li>
                     <li><a href="/videos" class="block hover:text-blue-300">{{ __('menu.videos') }}</a></li>
                     <li><a href="/musics" class="block hover:text-blue-300">{{ __('menu.musics') }}</a></li>
                     <li><a href="/education" class="block hover:text-blue-300">{{ __('menu.education') }}</a></li>
