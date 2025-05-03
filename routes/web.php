@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MusicController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\MusicController;
+
+
 
 
 
@@ -23,7 +25,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
-
+Route::resource('musics', MusicController::class);
 
 
 Route::get('lang/{locale}', function ($locale) {

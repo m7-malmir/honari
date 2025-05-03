@@ -1,64 +1,53 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Music;
 use Illuminate\Http\Request;
 
 class MusicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // نمایش لیست موزیک‌ها
     public function index()
     {
-        //
+        $musics = Music::all();
+        return view('musics.index', compact('musics'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // فرم ایجاد موزیک
     public function create()
     {
-        //
+        return view('musics.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // ذخیره موزیک جدید
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title_fa' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'artist' => 'nullable|string|max:255',
+            'file' => 'nullable|file|mimes:mp3|max:10240', // محدودیت حجم ۱۰MB
+        ]);
+
+        $music = new Music($validated);
+
+        if ($request->hasFile('file')) {
+            $music->file = $request->file('file')->store('musics', 'public');
+        }
+
+        $music->save();
+
+        return redirect()->route('musics.index')->with('success', 'موزیک جدید ذخیره شد!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // حذف موزیک
+    public function destroy(Music $music)
     {
-        //
-    }
+        if ($music->file) {
+            \Storage::disk('public')->delete($music->file);
+        }
+        $music->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('musics.index')->with('success', 'موزیک حذف شد!');
     }
 }
