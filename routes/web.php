@@ -5,11 +5,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MusicController;
-
-
-
-
-
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\BiographyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +23,19 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
 Route::resource('musics', MusicController::class);
+
+
+// برای سایت (فرانت)
+Route::get('/educations', [EducationController::class, 'index'])->name('educations.index');
+Route::get('/educations/{slug}', [EducationController::class, 'show'])->name('educations.show');
+
+// برای مدیریت (اگر بخش ادمین جدا داری)
+Route::resource('admin/educations', EducationController::class)->middleware('auth');
+
+
+Route::get('/biography', [BiographyController::class, 'index'])->name('biography.index');
+Route::get('/biography/edit/{id}', [BiographyController::class, 'edit'])->name('biography.edit');
+Route::put('/biography/update/{id}', [BiographyController::class, 'update'])->name('biography.update');
 
 
 Route::get('lang/{locale}', function ($locale) {

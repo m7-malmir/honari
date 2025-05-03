@@ -10,7 +10,7 @@
 
                 <li><a href="/videos" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
                 <li><a href="/musics" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
-                <li><a href="/education" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
+                <li><a href="/educations" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
                 <li><a href="/biography" class="hover:text-blue-300">{{ __('menu.biography') }}</a></li>
                 <li><a href="/contact" class="hover:text-blue-300">{{ __('menu.contact') }}</a></li>
             </ul>

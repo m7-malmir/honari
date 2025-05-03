@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Education;
 use Illuminate\Http\Request;
 
 class EducationController extends Controller
@@ -11,9 +12,9 @@ class EducationController extends Controller
      */
     public function index()
     {
-        //
+        $educations = \App\Models\Education::orderBy('order')->get();
+        return view('educations.index', compact('educations'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -33,11 +34,13 @@ class EducationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    // نمایش یک آموزش خاص
+    public function show($slug)
     {
-        //
+        // سرچ بر اساس اسلاگ هر زبان
+        $education = Education::where('slug_fa', $slug)->orWhere('slug_en', $slug)->firstOrFail();
+        return view('educations.show', compact('education'));
     }
-
     /**
      * Show the form for editing the specified resource.
      */
