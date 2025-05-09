@@ -7,6 +7,10 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\BiographyController;
+use App\Http\Controllers\ContactInfoController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +40,8 @@ Route::resource('admin/educations', EducationController::class)->middleware('aut
 Route::get('/biography', [BiographyController::class, 'index'])->name('biography.index');
 Route::get('/biography/edit/{id}', [BiographyController::class, 'edit'])->name('biography.edit');
 Route::put('/biography/update/{id}', [BiographyController::class, 'update'])->name('biography.update');
+Route::resource('contact-info', ContactInfoController::class);
+Route::get('/contact', [ContactInfoController::class, 'index'])->name('contact-infos.index');
 
 
 Route::get('lang/{locale}', function ($locale) {
