@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('education', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->string('username')->unique(); // نام کاربری
+            $table->string('email')->unique();   // ایمیل ادمین
+            $table->string('password');         // رمز عبور (هش شده)
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('education');
+        Schema::dropIfExists('admins');
     }
 };

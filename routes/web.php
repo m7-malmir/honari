@@ -1,67 +1,91 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\BiographyController;
 use App\Http\Controllers\ContactInfoController;
+use App\Http\Controllers\AdminController;
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+// صفحات عمومی سایت
 Route::get('/', function () {
-    return view('home');
+    return view('home'); // صفحه اصلی
 })->name('home');
-Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
-Route::resource('musics', MusicController::class);
-
-
-// برای سایت (فرانت)
-Route::get('/educations', [EducationController::class, 'index'])->name('educations.index');
-Route::get('/educations/{slug}', [EducationController::class, 'show'])->name('educations.show');
-
-// برای مدیریت (اگر بخش ادمین جدا داری)
-Route::resource('admin/educations', EducationController::class)->middleware('auth');
-
 
 Route::get('/biography', [BiographyController::class, 'index'])->name('biography.index');
-Route::get('/biography/edit/{id}', [BiographyController::class, 'edit'])->name('biography.edit');
-Route::put('/biography/update/{id}', [BiographyController::class, 'update'])->name('biography.update');
-Route::resource('contact-info', ContactInfoController::class);
-Route::get('/contact', [ContactInfoController::class, 'index'])->name('contact-infos.index');
-
-
-Route::get('lang/{locale}', function ($locale) {
-    if (!in_array($locale, ['en', 'fa'])) {
-        abort(400);
+Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
+Route::get('/musics', [MusicController::class, 'index'])->name('musics.index');
+Route::get('/educations', [EducationController::class, 'index'])->name('educations.index');
+Route::get('/contact', [ContactInfoController::class, 'contactForm'])->name('contact.form');
+Route::post('/contact', [ContactInfoController::class, 'storeContact'])->name('contact.store');
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'fa'])) {
+        Session::put('locale', $locale);
+        App::setLocale($locale);
     }
-    Session::put('locale', $locale);
-    App::setLocale($locale);
     return redirect()->back();
 })->name('lang.switch');
 
-Route::get('/musics', [MusicController::class, 'index'])->name('musics.index');
-Route::get('/musics/{music}', [MusicController::class, 'show'])->name('musics.show');
+// پنل مدیریت
+Route::prefix('admin')->name('admin.')->group(function () {
+    // ورود ادمین
+    Route::get('/login', [AdminController::class, 'loginForm'])->name('login')->middleware('guest:admin');
+    Route::post('/login', [AdminController::class, 'login'])->name('login.post');
+    Route::post('/logout', [AdminController::class, 'logout'])->name('logout')->middleware('auth:admin');
 
-Route::middleware(['is_admin'])->group(function () {
-    Route::get('/musics/create', [MusicController::class, 'create'])->name('musics.create');
-    Route::post('/musics', [MusicController::class, 'store'])->name('musics.store');
-    Route::get('/musics/{music}/edit', [MusicController::class, 'edit'])->name('musics.edit');
-    Route::put('/musics/{music}', [MusicController::class, 'update'])->name('musics.update');
-    Route::delete('/musics/{music}', [MusicController::class, 'destroy'])->name('musics.destroy');
+    // داشبورد مدیریت
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard')->middleware('auth:admin');
 
+    // مدیریت ویدیوها
+    Route::resource('/videos', VideoController::class)->middleware('auth:admin')->names([
+        'index' => 'admin.videos.index',   // مسیر مدیریتی
+        'create' => 'admin.videos.create',
+        'store' => 'admin.videos.store',
+        'edit' => 'admin.videos.edit',
+        'update' => 'admin.videos.update',
+        'destroy' => 'admin.videos.destroy',
+    ]);
+    Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
+        // سایر مسیرهای مدیریت
+        Route::resource('musics', MusicController::class)->names([
+            'index' => 'musics.index',
+            'create' => 'musics.create',
+            'store' => 'musics.store',
+            'edit' => 'musics.edit',
+            'update' => 'musics.update',
+            'destroy' => 'musics.destroy',
+        ]);
+    });
+    
+    // مدیریت آموزش‌ها
+    Route::resource('/educations', EducationController::class)->middleware('auth:admin')->names([
+        'index' => 'admin.educations.index',
+        'create' => 'admin.educations.create',
+        'store' => 'admin.educations.store',
+        'edit' => 'admin.educations.edit',
+        'update' => 'admin.educations.update',
+        'destroy' => 'admin.educations.destroy',
+    ]);
+
+    // مدیریت بیوگرافی‌ها
+    Route::resource('/biography', BiographyController::class)->middleware('auth:admin')->names([
+        'index' => 'admin.biography.index',
+        'edit' => 'admin.biography.edit',
+        'update' => 'admin.biography.update',
+    ]);
+
+    // مدیریت پیام‌های تماس
+    Route::resource('/contacts', ContactInfoController::class)->middleware('auth:admin')->names([
+        'index' => 'admin.contacts.index',
+        'show' => 'admin.contacts.show',
+        'destroy' => 'admin.contacts.destroy',
+    ]);
 });
+
+
+
+
 
