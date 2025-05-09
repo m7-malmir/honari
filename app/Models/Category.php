@@ -9,4 +9,9 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['name_fa', 'name_en'];
+    
+    public function musics()
+    {
+        return $this->hasMany(Music::class);
+    }
 }

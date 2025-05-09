@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\admin\MusicController as AdminMusicController; 
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\BiographyController;
 use App\Http\Controllers\ContactInfoController;
@@ -28,61 +29,24 @@ Route::get('/lang/{locale}', function ($locale) {
     }
     return redirect()->back();
 })->name('lang.switch');
+// Route::prefix('admin')->group(function () {
+//     Route::get('/login', [AdminController::class, 'loginForm'])->name('admin.login')->middleware('guest:admin');
+//     Route::post('/login', [AdminController::class, 'login'])->name('admin.login.post');
+//     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+//     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard')->middleware('auth:admin');
+// });
 
 // پنل مدیریت
-Route::prefix('admin')->name('admin.')->group(function () {
-    // ورود ادمین
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
+    Route::resource('musics', AdminMusicController::class); // موزیک‌ها
+    Route::resource('videos', VideoController::class); // ویدیوها
+    Route::resource('educations', EducationController::class); // آموزش‌ها
+    Route::resource('biography', BiographyController::class); // بیوگرافی
+    Route::resource('contacts', ContactInfoController::class); // اطلاعات تماس
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/login', [AdminController::class, 'loginForm'])->name('login')->middleware('guest:admin');
     Route::post('/login', [AdminController::class, 'login'])->name('login.post');
-    Route::post('/logout', [AdminController::class, 'logout'])->name('logout')->middleware('auth:admin');
-
-    // داشبورد مدیریت
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard')->middleware('auth:admin');
-
-    // مدیریت ویدیوها
-    Route::resource('/videos', VideoController::class)->middleware('auth:admin')->names([
-        'index' => 'admin.videos.index',   // مسیر مدیریتی
-        'create' => 'admin.videos.create',
-        'store' => 'admin.videos.store',
-        'edit' => 'admin.videos.edit',
-        'update' => 'admin.videos.update',
-        'destroy' => 'admin.videos.destroy',
-    ]);
-    Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
-        // سایر مسیرهای مدیریت
-        Route::resource('musics', MusicController::class)->names([
-            'index' => 'musics.index',
-            'create' => 'musics.create',
-            'store' => 'musics.store',
-            'edit' => 'musics.edit',
-            'update' => 'musics.update',
-            'destroy' => 'musics.destroy',
-        ]);
-    });
-    
-    // مدیریت آموزش‌ها
-    Route::resource('/educations', EducationController::class)->middleware('auth:admin')->names([
-        'index' => 'admin.educations.index',
-        'create' => 'admin.educations.create',
-        'store' => 'admin.educations.store',
-        'edit' => 'admin.educations.edit',
-        'update' => 'admin.educations.update',
-        'destroy' => 'admin.educations.destroy',
-    ]);
-
-    // مدیریت بیوگرافی‌ها
-    Route::resource('/biography', BiographyController::class)->middleware('auth:admin')->names([
-        'index' => 'admin.biography.index',
-        'edit' => 'admin.biography.edit',
-        'update' => 'admin.biography.update',
-    ]);
-
-    // مدیریت پیام‌های تماس
-    Route::resource('/contacts', ContactInfoController::class)->middleware('auth:admin')->names([
-        'index' => 'admin.contacts.index',
-        'show' => 'admin.contacts.show',
-        'destroy' => 'admin.contacts.destroy',
-    ]);
+    Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
 });
 
 

@@ -8,11 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Music extends Model
 {
     use HasFactory;
-    protected $table = 'musics'; // اگر نام جدول سفارشی است
+    protected $table = 'musics';
     protected $fillable = [
         'title_fa',
         'title_en',
+        'description_fa',
+        'description_en',
         'artist',
-        'file', // مسیر فایل آپلود شده
+        'cover',
+        'file',
+        'category_id',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
+
