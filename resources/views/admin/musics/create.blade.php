@@ -3,7 +3,7 @@
 @section('title', 'افزودن موزیک')
 
 @section('content')
-<form action="{{ route('admin.musics.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('musics.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="title_fa">عنوان فارسی:</label>

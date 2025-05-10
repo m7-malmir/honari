@@ -57,7 +57,7 @@
 
     <!-- دکمه افزودن موسیقی -->
     <div class="mt-4">
-        <a href="{{ route('musics.create') }}" 
+        <a href="{{ route('videos.create') }}" 
            class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">افزودن موسیقی</a>
     </div>
 </div>

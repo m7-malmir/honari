@@ -4,11 +4,11 @@
     </div>
     <nav class="flex flex-col mt-2">
         <a href="{{ route('admin.dashboard') }}" class="py-2 px-6 hover:bg-blue-700">داشبورد</a>
-        <a href="{{ route('admin.videos.index') }}" class="py-2 px-6 hover:bg-blue-700">مدیریت ویدیوها</a>
-        <a href="{{ route('admin.musics.index') }}" class="py-2 px-6 hover:bg-blue-700">مدیریت موسیقی‌ها</a>
-        <a href="{{ route('admin.educations.index') }}" class="py-2 px-6 hover:bg-blue-700">مدیریت آموزش‌ها</a>
-        <a href="{{ route('admin.biography.index') }}" class="py-2 px-6 hover:bg-blue-700">ویرایش بیوگرافی</a>
-        <a href="{{ route('admin.contacts.index') }}" class="py-2 px-6 hover:bg-blue-700">پیام‌های تماس با ما</a>
+        <a href="{{ route('videos.index') }}" class="py-2 px-6 hover:bg-blue-700">مدیریت ویدیوها</a>
+        <a href="{{ route('musics.index') }}" class="py-2 px-6 hover:bg-blue-700">مدیریت موسیقی‌ها</a>
+        <a href="{{ route('educations.index') }}" class="py-2 px-6 hover:bg-blue-700">مدیریت آموزش‌ها</a>
+        <a href="{{ route('biography.index') }}" class="py-2 px-6 hover:bg-blue-700">ویرایش بیوگرافی</a>
+        <a href="{{ route('contacts.index') }}" class="py-2 px-6 hover:bg-blue-700">پیام‌های تماس با ما</a>
     </nav>
     
 </div>

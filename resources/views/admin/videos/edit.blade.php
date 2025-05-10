@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>ویرایش ویدیو</h1>
-<form action="{{ route('admin.videos.update', $video->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('videos.update', $video->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group">

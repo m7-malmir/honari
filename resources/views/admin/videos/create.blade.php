@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>افزودن ویدیو جدید</h1>
-<form action="{{ route('admin.videos.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('videos.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="title_fa">عنوان فارسی</label>
