@@ -13,7 +13,7 @@ class EducationController extends Controller
     public function index()
     {
         $educations = \App\Models\Education::orderBy('order')->get();
-        return view('educations.index', compact('educations'));
+        return view('admin.educations.index', compact('educations'));
     }
     /**
      * Show the form for creating a new resource.

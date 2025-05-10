@@ -12,7 +12,7 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::with('category')->orderBy('created_at', 'desc')->get();
-        return view('videos.index', compact('videos'));
+        return view('admin.videos.index', compact('videos'));
     }
 
     /**

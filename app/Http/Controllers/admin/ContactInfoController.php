@@ -12,7 +12,7 @@ class ContactInfoController extends Controller
     public function index()
     {
         $contactInfo = \App\Models\ContactInfo::first(); // چون فقط یک رکورد برای اطلاعات تماسه
-        return view('contact_infos.index', compact('contactInfo'));
+        return view('admin.contact_infos.index', compact('contactInfo'));
     }
     
 

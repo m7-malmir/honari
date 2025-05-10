@@ -10,7 +10,7 @@ class BiographyController extends Controller
     {
         // فرض: فقط یک بیوگرافی داریم (id = 1)
         $bio = \App\Models\Biography::first(); 
-        return view('biography.index', compact('bio'));
+        return view('admin.biography.index', compact('bio'));
     }
     
     public function edit($id)
