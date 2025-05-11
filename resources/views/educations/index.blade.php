@@ -2,15 +2,15 @@
 @section('title', __('آموزش‌ها'))
 
 @section('content')
-<div dir="rtl" class="bg-gray-50 py-8 px-4">
+<div dir="rtl" class="bg-black py-8 px-4">
     <div class="container mx-auto">
         <!-- متن توضیحات -->
         <div class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-blue-700 mb-4">همین الان یاد بگیر!</h1>
-            <p class="text-gray-600 text-lg">
+            <h1 class="text-3xl font-bold text-white mb-4">همین الان یاد بگیر!</h1>
+            <p class="text-white text-lg">
                 چند دقیقه وقت بذار و یک نکته از گیتار کلاسیک رو یادبگیر
             </p>
-            <p class="text-gray-600 text-md">
+            <p class="text-white text-md">
                 این ویدیوی نمونه‌ای از آموزش مجموعه گیتار کلاسیک است. بخشش کن تا با شیوه و سبک آموزش بهتر آشنا شوی.
             </p>
         </div>
@@ -30,13 +30,13 @@
 
         <!-- توضیحات پایین -->
         <div class="text-center mt-8">
-            <p class="text-gray-800 text-lg">
+            <p class="text-white text-lg">
                 <span class="text-blue-700 font-bold hover:underline cursor-pointer">۴ دلیل</span> برای اینکه چرا عاشق یادگیری گیتار کلاسیک می‌شوید.
             </p>
         </div>
     </div>
 </div>
-<div dir="rtl" class="bg-gray-50 py-8 px-4">
+<div dir="rtl" class="bg-black py-8 px-4">
     <div class="container mx-auto">
         <!-- لیست کارت‌ها -->
         <div class="grid grid-cols-1 gap-6">
@@ -45,13 +45,13 @@
             <div class="bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
                 <!-- تصویر -->
                 <div class="w-full md:w-1/4 bg-gray-300 flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="/images/lesson1.jpg" alt="آموزش ریتم 2/4">
+                    <img class="w-full h-full object-cover" src="/images/All-kinds-of-musical-instruments.jpg" alt="آموزش ریتم 2/4">
                 </div>
                 <!-- اطلاعات متن -->
                 <div class="flex-1 p-6">
                     <h2 class="text-xl font-bold text-blue-700">آموزش ریتم ۲/۴ با مسعود</h2>
-                    <p class="text-gray-600 mt-2">در این دوره آموزش ریتم ۲/۴ به همراه چند نکته کاربردی یادخواهید گرفت.</p>
-                    <p class="text-sm text-gray-400 mt-4">مدرس: مسعود بابایی</p>
+                    <p class="text-grey-600 mt-2">در این دوره آموزش ریتم ۲/۴ به همراه چند نکته کاربردی یادخواهید گرفت.</p>
+                    <p class="text-sm text-grey-600 mt-4">مدرس: مسعود بابایی</p>
                 </div>
                 <!-- لینک ادامه مطلب -->
                 <div class="p-4 flex items-end">
@@ -63,13 +63,13 @@
             <div class="bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
                 <!-- تصویر -->
                 <div class="w-full md:w-1/4 bg-gray-300 flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="/images/lesson2.jpg" alt="دوره گیتار">
+                    <img class="w-full h-full object-cover" src="/images/All-kinds-of-musical-instruments.jpg" alt="دوره گیتار">
                 </div>
                 <!-- اطلاعات متن -->
                 <div class="flex-1 p-6">
                     <h2 class="text-xl font-bold text-blue-700">دوره گیتار با مهدی صفاتی - بخش ۶</h2>
-                    <p class="text-gray-600 mt-2">در این بخش از دوره آموزش گیتار، جزئیات بیشتری را مشاهده می‌کنید.</p>
-                    <p class="text-sm text-gray-400 mt-4">مدرس: مهدی صفاتی</p>
+                    <p class="text-grey-600 mt-2">در این بخش از دوره آموزش گیتار، جزئیات بیشتری را مشاهده می‌کنید.</p>
+                    <p class="text-sm text-grey-600 mt-4">مدرس: مهدی صفاتی</p>
                 </div>
                 <!-- لینک ادامه مطلب -->
                 <div class="p-4 flex items-end">
@@ -81,13 +81,13 @@
             <div class="bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
                 <!-- تصویر -->
                 <div class="w-full md:w-1/4 bg-gray-300 flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="/images/lesson3.jpg" alt="نگاهی کوتاه به ریتم">
+                    <img class="w-full h-full object-cover" src="/images/All-kinds-of-musical-instruments.jpg" alt="نگاهی کوتاه به ریتم">
                 </div>
                 <!-- اطلاعات متن -->
                 <div class="flex-1 p-6">
                     <h2 class="text-xl font-bold text-blue-700">نگاهی کوتاه به ریتم ۲/۴ با آرش یاسمینی</h2>
-                    <p class="text-gray-600 mt-2">نگاهی دقیق به اجرای ریتم ۲/۴ با آرش یاسمینی خواهید داشت.</p>
-                    <p class="text-sm text-gray-400 mt-4">مدرس: آرش یاسمینی</p>
+                    <p class="text-grey-600 mt-2">نگاهی دقیق به اجرای ریتم ۲/۴ با آرش یاسمینی خواهید داشت.</p>
+                    <p class="text-sm text-grey-600 mt-4">مدرس: آرش یاسمینی</p>
                 </div>
                 <!-- لینک ادامه مطلب -->
                 <div class="p-4 flex items-end">

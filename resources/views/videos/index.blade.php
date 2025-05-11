@@ -3,7 +3,7 @@
 @section('title', app()->getLocale() == 'fa' ? 'ویدیوها' : 'Videos')
 
 @section('content')
-<div dir="rtl" class="bg-blue-50 py-8 px-4">
+<div dir="rtl" class="bg-black py-8 px-4">
     <div class="container mx-auto">
         <!-- گالری -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -36,7 +36,7 @@
             
             <!-- کارت تصویر 4 -->
             <div class="bg-white rounded-lg shadow-md p-4">
-                <img src="/images/gallery4.jpg" alt="گروه تنبک نوازان" class="rounded-lg object-cover w-full h-48">
+                <img src="/images/recommend1.jpg" alt="گروه تنبک نوازان" class="rounded-lg object-cover w-full h-48">
                 <div class="mt-4 text-center">
                     <h3 class="text-lg font-semibold text-gray-800">گروه تنبک نوازان</h3>
                     <p class="text-sm text-gray-500">1397/05/24 (5)</p>
@@ -45,7 +45,7 @@
 
             <!-- کارت تصویر 5 -->
             <div class="bg-white rounded-lg shadow-md p-4">
-                <img src="/images/gallery5.jpg" alt="گروه دف نوازان" class="rounded-lg object-cover w-full h-48">
+                <img src="/images/recommend2.jpg" alt="گروه دف نوازان" class="rounded-lg object-cover w-full h-48">
                 <div class="mt-4 text-center">
                     <h3 class="text-lg font-semibold text-gray-800">گروه دف نوازان</h3>
                     <p class="text-sm text-gray-500">1397/05/24 (7)</p>
@@ -54,7 +54,7 @@
 
             <!-- کارت تصویر 6 -->
             <div class="bg-white rounded-lg shadow-md p-4">
-                <img src="/images/gallery6.jpg" alt="اجرای تکنوازی" class="rounded-lg object-cover w-full h-48">
+                <img src="/images/recommend3.jpg" alt="اجرای تکنوازی" class="rounded-lg object-cover w-full h-48">
                 <div class="mt-4 text-center">
                     <h3 class="text-lg font-semibold text-gray-800">اجرای تکنوازی</h3>
                     <p class="text-sm text-gray-500">1397/05/24 (8)</p>
