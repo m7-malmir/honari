@@ -1,31 +1,24 @@
 @extends('layouts.app')
 
-@section('title', 'خانه | وب‌سایت هنری آقای طغیانی')
+@section('title', 'صفحه اصلی')
+
+@section('body-class', 'bg-black overflow-hidden')
+
+@section('canvas')
+<!-- Canvas element for animation -->
+<canvas id="bgCanvas"></canvas>
+@endsection
 
 @section('content')
-    <div class="w-full bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
-        <div class="mx-auto px-4 flex flex-col items-center h-[900px]">
-            <div class="relative w-full h-full flex flex-col justify-center items-center overflow-hidden">
-                <!-- نت‌های موسیقی -->
-                <div class="absolute note">&#9835;</div>
-                <div class="absolute note">&#9833;</div>
-                <div class="absolute note">&#9834;</div>
-                <div class="absolute note">&#9839;</div>
-                <!-- پروفایل آقای طغیانی -->
-                <div class="profile-container">
-                    <div class="profile-image">
-                        <img src="{{ asset('images/profile.png') }}" alt="آقای طغیانی">
-                    </div>
-                    <div class="profile-info">
-                        <h2>آقای طغیانی</h2>
-                        <p>هنرمند، موسیقی‌دان و خالق این اثر هنری</p>
-                        <p>آقای طغیانی با سال‌ها تجربه در زمینه موسیقی و هنر، آثار بی‌نظیری را خلق کرده‌اند.</p>
-                        <p>ایشان در زمینه‌های مختلف هنری فعالیت دارند و همواره در تلاش برای ارائه آثار با کیفیت و متفاوت هستند.</p>
-                        <p>هدف اصلی ایشان ارائه هنر به شکلی است که بتواند بر دل مخاطب نشسته و احساسات او را برانگیزد.</p>
-                        <p>برای کسب اطلاعات بیشتر و مشاهده آثار ایشان، می‌توانید از طریق لینک‌های زیر اقدام نمایید.</p>
-                    </div>
-                </div>
-            </div>
+<div class="relative w-screen h-screen flex items-center justify-center bg-black bg-opacity-60">
+    <div class="bg-white bg-opacity-10 border border-white border-opacity-20 rounded-2xl p-10 max-w-4xl text-white flex gap-8 z-20 backdrop-filter backdrop-blur-lg">
+        <img src="https://placekitten.com/300/300" alt="Artist Image" class="w-48 h-48 object-cover rounded-xl border-2 border-white border-opacity-30">
+        <div class="flex flex-col justify-center">
+            <h2 class="mt-0 mb-4 text-2xl font-bold">نام هنرمند</h2>
+            <p class="text-lg leading-relaxed">
+                این هنرمند در زمینه موسیقی الکترونیک فعالیت دارد و تاکنون چندین آلبوم منتشر کرده است. سبک کار او ترکیبی از کلاسیک و مدرن است.
+            </p>
         </div>
     </div>
+</div>
 @endsection

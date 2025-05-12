@@ -11,8 +11,10 @@ class ContactInfoController extends Controller
      */
     public function index()
     {
-        $contactInfo = \App\Models\ContactInfo::first(); // چون فقط یک رکورد برای اطلاعات تماسه
+
+        $contactInfo = \App\Models\ContactInfo::first();
         return view('contact_infos.index', compact('contactInfo'));
+
     }
     
 

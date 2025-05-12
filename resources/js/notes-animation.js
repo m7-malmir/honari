@@ -1,5 +1,3 @@
-import './bootstrap';
-import '../css/app.css';
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -103,4 +101,3 @@ function animate() {
 }
 
 animate();
-

@@ -6,7 +6,11 @@
     <title>@yield('title', 'وب‌سایت هنری آقای طغیانی')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col font-sans text-gray-700">
+<body class="@yield('body-class', 'bg-gray-100') min-h-screen flex flex-col font-sans text-gray-700">
+    @if(View::hasSection('canvas'))
+        <canvas id="bgCanvas"></canvas>
+    @endif
+
     {{-- هدر --}}
     @include('partials.header')
 

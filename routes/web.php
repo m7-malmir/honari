@@ -30,7 +30,8 @@ Route::get('/biography', [BiographyController::class, 'index'])->name('biography
 Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
 Route::get('/musics', [MusicController::class, 'index'])->name('musics.index');
 Route::get('/educations', [EducationController::class, 'index'])->name('educations.index');
-Route::get('/contact', [ContactInfoController::class, 'contactForm'])->name('contact.form');
+Route::get('/contact', [ContactInfoController::class, 'index'])->name('contact.index');
+
 Route::post('/contact', [ContactInfoController::class, 'storeContact'])->name('contact.store');
 
 // ----------------------------
