@@ -5,13 +5,12 @@
         </h1>
         {{-- منوی اصلی --}}
         <nav>
-            <ul class="hidden md:flex md:space-x-4 text-center text-white">
-                <li><a href="/" class="hover:text-blue-300">{{ __('menu.home') }}</a></li>
-
-                <li><a href="/videos" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
-                <li><a href="/musics" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
-                <li><a href="/educations" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
-                <li><a href="/biography" class="hover:text-blue-300">{{ __('menu.biography') }}</a></li>
+            <ul class="hidden md:flex md:space-x-reverse md:space-x-4 text-center text-white">
+                <li class="ml-4"><a href="/" class="hover:text-blue-300">{{ __('menu.home') }}</a></li>
+                <li class="ml-4"><a href="/videos" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
+                <li class="ml-4"><a href="/musics" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
+                <li class="ml-4"><a href="/educations" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
+                <li class="ml-4"><a href="/biography" class="hover:text-blue-300">{{ __('menu.biography') }}</a></li>
                 <li><a href="/contact" class="hover:text-blue-300">{{ __('menu.contact') }}</a></li>
             </ul>
             <div class="flex md:hidden cursor-pointer menu-button">
@@ -31,10 +30,23 @@
             </div>
         </nav>
         {{-- دکمه‌های تغییر زبان --}}
-        <div class="flex space-x-2">
-            <a href="{{ route('lang.switch', ['locale' => 'fa']) }}" class="px-3 py-2 bg-black text-white rounded-md hover:bg-gray-700">فارسی</a>
-            <a href="{{ route('lang.switch', ['locale' => 'en']) }}" class="px-3 py-2 bg-black text-white rounded-md hover:bg-gray-700">English</a>
-        </div>
+        <div class="relative w-28 h-8 rounded-full shadow-md flex overflow-hidden">
+            <!-- بخش فارسی -->
+            <a href="{{ route('lang.switch', ['locale' => 'fa']) }}"  
+               class="flex-1 bg-blue-600 text-white font-bold text-xs flex items-center justify-center">
+              FA
+            </a>
+          
+            <!-- جداکننده مورب -->
+            <div class="w-0 h-0 border-t-[32px] border-t-blue-600 border-l-[28px] border-l-yellow-400"></div>
+          
+            <!-- بخش انگلیسی -->
+            <a href="{{ route('lang.switch', ['locale' => 'en']) }}"
+               class="flex-1 bg-yellow-400 text-black font-bold text-xs flex items-center justify-center">
+              ENG
+            </a>
+          </div>
+        
     </div>
     @section('scripts')
     <script>
