@@ -11,7 +11,7 @@
     <nav>
         <ul class="hidden md:flex {{ app()->getLocale() === 'fa' ? 'md:space-x-reverse md:space-x-4' : 'md:space-x-4' }} text-center text-white">
             <li class="ml-4"><a href="/" class="hover:text-blue-300">{{ __('menu.home') }}</a></li>
-            <li class="ml-4"><a href="/videos" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
+            <li class="ml-4"><a href="/video-list" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
             <li class="ml-4"><a href="/musics" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
             <li class="ml-4"><a href="/educations" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
             <li class="ml-4"><a href="/biography" class="hover:text-blue-300">{{ __('menu.biography') }}</a></li>

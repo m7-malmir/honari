@@ -11,7 +11,7 @@
       
       <!-- About Title -->
       <h2 class="absolute -top-28 text-4xl md:text-5xl font-light text-white z-[999]">
-        About<br />Elyas Toghyani
+        {{ __('biography.section_title_1') }}<br />{{ __('biography.section_title_2') }}
       </h2>
       
       <!-- About Button -->
@@ -45,15 +45,15 @@
       <!-- Right Section (Texts) -->
       <div>
         <p class="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga debitis molestiae blanditiis porro, minima nihil culpa facilis ducimus ea veritatis.
+            {{ __('biography.bio_p1') }}
         </p>
         <p class="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga debitis molestiae blanditiis porro, minima nihil culpa facilis ducimus ea veritatis.
+            {{ __('biography.bio_p2') }}
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga debitis molestiae blanditiis porro, minima nihil culpa facilis ducimus ea veritatis.
+            {{ __('biography.bio_p3') }}
         </p>
-      </div>
+    </div>
     </div>
   </section>
 
