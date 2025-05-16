@@ -104,3 +104,16 @@ function animate() {
 
 animate();
 
+
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.getElementById('mainHeader');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 10) {
+      header.classList.add('border-b', 'border-dark-border', 'shadow-lg', 'bg-opacity-95');
+    } else {
+      header.classList.remove('border-b', 'border-dark-border', 'shadow-lg', 'bg-opacity-95');
+    }
+  });
+});
+
+

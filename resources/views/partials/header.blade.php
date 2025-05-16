@@ -1,5 +1,8 @@
 <header dir="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }}"
-    class="w-full bg-dark-surface py-4 shadow-md">
+  class="w-full bg-dark-surface sticky top-0 z-30 transition-all duration-300
+         py-4 shadow-none border-b-0"
+  id="mainHeader"
+>
 <div class="container mx-auto flex items-center justify-between px-4 {{ app()->getLocale() === 'fa' ? 'text-right' : 'text-left' }}">
     <h1 class="text-lg md:text-xl text-white font-bold">
         {{ app()->getLocale() === 'fa' ? 'وب‌سایت هنری آقای طغیانی' : 'Mr. Taghiyani’s Art Website' }}
