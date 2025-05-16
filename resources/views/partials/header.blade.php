@@ -1,4 +1,4 @@
-<header dir="rtl" class="w-full bg-blue-800 py-4 shadow-md">
+<header dir="rtl" class="w-full bg-dark-surface py-4 shadow-md">
     <div class="container mx-auto flex items-center justify-between px-4">
         <h1 class="text-lg md:text-xl text-white font-bold">
             وب‌سایت هنری آقای طغیانی
@@ -33,16 +33,16 @@
         <div class="relative w-28 h-8 rounded-full shadow-md flex overflow-hidden">
             <!-- بخش فارسی -->
             <a href="{{ route('lang.switch', ['locale' => 'fa']) }}"  
-               class="flex-1 bg-blue-600 text-white font-bold text-xs flex items-center justify-center">
+               class="flex-1 bg-purple-600 text-white font-bold text-xs flex items-center justify-center">
               FA
             </a>
           
             <!-- جداکننده مورب -->
-            <div class="w-0 h-0 border-t-[32px] border-t-blue-600 border-l-[28px] border-l-yellow-400"></div>
+            <div class="w-0 h-0 border-t-[32px] border-t-purple-600 border-l-[28px] border-l-orange-400"></div>
           
             <!-- بخش انگلیسی -->
             <a href="{{ route('lang.switch', ['locale' => 'en']) }}"
-               class="flex-1 bg-yellow-400 text-black font-bold text-xs flex items-center justify-center">
+               class="flex-1 bg-orange-400 text-black font-bold text-xs flex items-center justify-center">
               ENG
             </a>
           </div>

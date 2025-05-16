@@ -1,8 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+    body{
+       /* direction: rtl;*/
+        overflow-x: hidden; /* اسکرول‌بار افقی را مخفی می‌کند */
+        overflow-y: auto;
+    }
     canvas {
         position: absolute;
         top: 0;
