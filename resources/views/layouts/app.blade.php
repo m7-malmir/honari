@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'وب‌سایت هنری آقای طغیانی')</title>
+    <title>@yield('title', app()->getLocale() === 'fa' ? 'وب‌سایت هنری آقای طغیانی' : "Mr. Taghiyani’s Art Website")</title>
     <link rel="stylesheet" href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/WebFont/css/vazirmatn.min.css">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
