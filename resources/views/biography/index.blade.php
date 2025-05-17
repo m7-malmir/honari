@@ -43,7 +43,7 @@
       </div>
 
       <!-- Right Section (Texts) -->
-      <div>
+      <div class="text-neutral-200 space-y-4">
         <p class="mb-4">
             {{ __('biography.bio_p1') }}
         </p>
@@ -53,6 +53,24 @@
         <p>
             {{ __('biography.bio_p3') }}
         </p>
+        <p>
+          {{ __('biography.bio_p4') }}
+      </p>
+      <p>
+        {{ __('biography.bio_p5') }}
+    </p>
+    <p>
+      {{ __('biography.bio_p6') }}
+  </p>
+  <p>
+    {{ __('biography.bio_p7') }}
+</p>
+<p>
+  {{ __('biography.bio_p8') }}
+</p>
+<p>
+  {{ __('biography.bio_p9') }}
+</p>
     </div>
     </div>
   </section>

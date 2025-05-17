@@ -11,11 +11,12 @@
     <nav>
         <ul class="hidden md:flex {{ app()->getLocale() === 'fa' ? 'md:space-x-reverse md:space-x-4' : 'md:space-x-4' }} text-center text-white">
             <li class="ml-4"><a href="/" class="hover:text-blue-300">{{ __('menu.home') }}</a></li>
-            <li class="ml-4"><a href="/video-list" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
-            <li class="ml-4"><a href="/musics" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
-            <li class="ml-4"><a href="/educations" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
             <li class="ml-4"><a href="/biography" class="hover:text-blue-300">{{ __('menu.biography') }}</a></li>
-            <li><a href="/contact" class="hover:text-blue-300">{{ __('menu.contact') }}</a></li>
+            <li class="ml-4"><a href="/video-list" class="hover:text-blue-300">{{ __('menu.videos') }}</a></li>
+            <li class="ml-4"><a href="/music-list" class="hover:text-blue-300">{{ __('menu.musics') }}</a></li>
+            <li class="ml-4"><a href="/educations" class="hover:text-blue-300">{{ __('menu.education') }}</a></li>
+
+            
         </ul>
         <div class="flex md:hidden cursor-pointer menu-button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -25,11 +26,12 @@
         <div class="hidden mobile-menu bg-blue-800 text-white p-4 absolute z-50 right-4 top-16 rounded shadow-lg">
             <ul class="space-y-2">
                 <li><a href="/" class="block hover:text-blue-300">{{ __('menu.home') }}</a></li>
-                <li><a href="/videos" class="block hover:text-blue-300">{{ __('menu.videos') }}</a></li>
-                <li><a href="/musics" class="block hover:text-blue-300">{{ __('menu.musics') }}</a></li>
-                <li><a href="/education" class="block hover:text-blue-300">{{ __('menu.education') }}</a></li>
                 <li><a href="/biography" class="block hover:text-blue-300">{{ __('menu.biography') }}</a></li>
-                <li><a href="/contact" class="block hover:text-blue-300">{{ __('menu.contact') }}</a></li>
+                <li><a href="/videos" class="block hover:text-blue-300">{{ __('menu.videos') }}</a></li>
+                <li><a href="/music-list" class="block hover:text-blue-300">{{ __('menu.musics') }}</a></li>
+                <li><a href="/education" class="block hover:text-blue-300">{{ __('menu.education') }}</a></li>
+
+                
             </ul>
         </div>
     </nav>

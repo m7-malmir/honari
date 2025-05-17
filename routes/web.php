@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::get('/biography', [BiographyController::class, 'index'])->name('biography.index');
 Route::get('/video-list', [VideoController::class, 'index'])->name('videos.index');
-Route::get('/musics', [MusicController::class, 'index'])->name('musics.index');
+Route::get('/music-list', [MusicController::class, 'index'])->name('musics.index');
 Route::get('/educations', [EducationController::class, 'index'])->name('educations.index');
 Route::get('/contact', [ContactInfoController::class, 'index'])->name('contact.index');
 

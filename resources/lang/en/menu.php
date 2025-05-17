@@ -5,5 +5,5 @@ return [
     'musics' => 'Musics',
     'education' => 'Education',
     'biography' => 'Biography',
-    'contact' => 'Contact',
+
 ];

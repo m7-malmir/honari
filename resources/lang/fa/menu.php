@@ -5,5 +5,4 @@ return [
     'musics' => 'موزیک‌ها',
     'education' => 'آموزش',
     'biography' => 'بیوگرافی',
-    'contact' => 'تماس با ما',
 ];
