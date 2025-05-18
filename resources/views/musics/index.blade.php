@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto px-4 py-10">
+<div class="container mx-auto px-4 py-10"> 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- کارت ۱ -->
         <div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
@@ -67,6 +67,141 @@
                 </button>
             </div>
         </div>
+        
+
+
+        <div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
+        style="background-image: url('/images/pngimg.com - music_notes_PNG38.png'); background-size: contain; background-position: center right;">
+       <div class="absolute inset-0 bg-[#111827] opacity-65 z-10"></div>
+       <img src="/images/2-150x150.jpg" alt="{{ __('musics.card1_album_cover') }}" class="rounded-xl shadow-lg w-48 h-48 object-cover border-4 border-gray-700 z-20 relative">
+       <div class="mt-6 text-center w-full z-20 relative">
+           <h1 class="text-2xl font-bold tracking-tight text-white">{{ __('musics.card1_title') }}</h1>
+           <p class="text-yellow-400 font-semibold mt-1">{{ __('musics.card1_artist') }}</p>
+           <p class="text-gray-400 text-xs mt-1">{{ __('musics.card1_info') }}</p>
+           <button
+               onclick="playMusic('/musics/1.mp3', '{{ __('musics.card1_title') }}', '{{ __('musics.card1_artist') }}', '/images/2-150x150.jpg', '02:24')"
+               class="bg-yellow-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-bold shadow hover:bg-yellow-500 mt-6 mx-auto transition"
+           >
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+               </svg>
+               {{ __('musics.play_button') }}
+           </button>
+       </div>
+   </div>
+
+   <!-- کارت ۲ : فیلدها و تصویر متفاوت -->
+   <div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
+        style="background-image: url('/images/pngimg.com - music_notes_PNG38.png'); background-size: contain; background-position: center right;">
+       <div class="absolute inset-0 bg-[#111827] opacity-65 z-10"></div>
+       <img src="/images/3-150x150.jpg" alt="{{ __('musics.card2_album_cover') }}" class="rounded-xl shadow-lg w-48 h-48 object-cover border-4 border-gray-700 z-20 relative">
+       <div class="mt-6 text-center w-full z-20 relative">
+           <h1 class="text-2xl font-bold tracking-tight text-white">{{ __('musics.card2_title') }}</h1>
+           <p class="text-yellow-400 font-semibold mt-1">{{ __('musics.card2_artist') }}</p>
+           <p class="text-gray-400 text-xs mt-1">{{ __('musics.card2_info') }}</p>
+           <button
+             onclick="playMusic('/musics/2.mp3', '{{ __('musics.card2_title') }}', '{{ __('musics.card2_artist') }}', '/images/3-150x150.jpg', '03:20')"
+             class="bg-yellow-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-bold shadow hover:bg-yellow-500 mt-6 mx-auto transition"
+           >
+             <!-- SVG Play Icon -->
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+             </svg>
+             {{ __('musics.play_button') }}
+           </button>
+       </div>
+   </div>
+
+   <!-- کارت ۳ : فیلدها و تصویر متفاوت -->
+   <div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
+        style="background-image: url('/images/pngimg.com - music_notes_PNG38.png'); background-size: contain; background-position: center right;">
+       <div class="absolute inset-0 bg-[#111827] opacity-65 z-10"></div>
+       <img src="/images/5-150x150.jpg" alt="{{ __('musics.card3_album_cover') }}" class="rounded-xl shadow-lg w-48 h-48 object-cover border-4 border-gray-700 z-20 relative">
+       <div class="mt-6 text-center w-full z-20 relative">
+           <h1 class="text-2xl font-bold tracking-tight text-white">{{ __('musics.card3_title') }}</h1>
+           <p class="text-yellow-400 font-semibold mt-1">{{ __('musics.card3_artist') }}</p>
+           <p class="text-gray-400 text-xs mt-1">{{ __('musics.card3_info') }}</p>
+           <button
+             onclick="playMusic('/musics/3.mp3', '{{ __('musics.card3_title') }}', '{{ __('musics.card3_artist') }}', '/images/4-150x150.jpg', '04:15')"
+             class="bg-yellow-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-bold shadow hover:bg-yellow-500 mt-6 mx-auto transition"
+           >
+             <!-- SVG Play Icon -->
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+             </svg>
+             {{ __('musics.play_button') }}
+           </button>
+       </div>
+   </div>
+
+
+
+
+
+
+   <div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
+   style="background-image: url('/images/pngimg.com - music_notes_PNG38.png'); background-size: contain; background-position: center right;">
+  <div class="absolute inset-0 bg-[#111827] opacity-65 z-10"></div>
+  <img src="/images/2-150x150.jpg" alt="{{ __('musics.card1_album_cover') }}" class="rounded-xl shadow-lg w-48 h-48 object-cover border-4 border-gray-700 z-20 relative">
+  <div class="mt-6 text-center w-full z-20 relative">
+      <h1 class="text-2xl font-bold tracking-tight text-white">{{ __('musics.card1_title') }}</h1>
+      <p class="text-yellow-400 font-semibold mt-1">{{ __('musics.card1_artist') }}</p>
+      <p class="text-gray-400 text-xs mt-1">{{ __('musics.card1_info') }}</p>
+      <button
+          onclick="playMusic('/musics/1.mp3', '{{ __('musics.card1_title') }}', '{{ __('musics.card1_artist') }}', '/images/2-150x150.jpg', '02:24')"
+          class="bg-yellow-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-bold shadow hover:bg-yellow-500 mt-6 mx-auto transition"
+      >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+          </svg>
+          {{ __('musics.play_button') }}
+      </button>
+  </div>
+</div>
+
+<!-- کارت ۲ : فیلدها و تصویر متفاوت -->
+<div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
+   style="background-image: url('/images/pngimg.com - music_notes_PNG38.png'); background-size: contain; background-position: center right;">
+  <div class="absolute inset-0 bg-[#111827] opacity-65 z-10"></div>
+  <img src="/images/3-150x150.jpg" alt="{{ __('musics.card2_album_cover') }}" class="rounded-xl shadow-lg w-48 h-48 object-cover border-4 border-gray-700 z-20 relative">
+  <div class="mt-6 text-center w-full z-20 relative">
+      <h1 class="text-2xl font-bold tracking-tight text-white">{{ __('musics.card2_title') }}</h1>
+      <p class="text-yellow-400 font-semibold mt-1">{{ __('musics.card2_artist') }}</p>
+      <p class="text-gray-400 text-xs mt-1">{{ __('musics.card2_info') }}</p>
+      <button
+        onclick="playMusic('/musics/2.mp3', '{{ __('musics.card2_title') }}', '{{ __('musics.card2_artist') }}', '/images/3-150x150.jpg', '03:20')"
+        class="bg-yellow-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-bold shadow hover:bg-yellow-500 mt-6 mx-auto transition"
+      >
+        <!-- SVG Play Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+        </svg>
+        {{ __('musics.play_button') }}
+      </button>
+  </div>
+</div>
+
+<!-- کارت ۳ : فیلدها و تصویر متفاوت -->
+<div class="relative rounded-2xl flex flex-col items-center p-6 shadow-lg bg-black/70 overflow-hidden"
+   style="background-image: url('/images/pngimg.com - music_notes_PNG38.png'); background-size: contain; background-position: center right;">
+  <div class="absolute inset-0 bg-[#111827] opacity-65 z-10"></div>
+  <img src="/images/5-150x150.jpg" alt="{{ __('musics.card3_album_cover') }}" class="rounded-xl shadow-lg w-48 h-48 object-cover border-4 border-gray-700 z-20 relative">
+  <div class="mt-6 text-center w-full z-20 relative">
+      <h1 class="text-2xl font-bold tracking-tight text-white">{{ __('musics.card3_title') }}</h1>
+      <p class="text-yellow-400 font-semibold mt-1">{{ __('musics.card3_artist') }}</p>
+      <p class="text-gray-400 text-xs mt-1">{{ __('musics.card3_info') }}</p>
+      <button
+        onclick="playMusic('/musics/3.mp3', '{{ __('musics.card3_title') }}', '{{ __('musics.card3_artist') }}', '/images/4-150x150.jpg', '04:15')"
+        class="bg-yellow-400 text-black px-4 py-2 rounded-lg flex items-center gap-2 font-bold shadow hover:bg-yellow-500 mt-6 mx-auto transition"
+      >
+        <!-- SVG Play Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+        </svg>
+        {{ __('musics.play_button') }}
+      </button>
+  </div>
+</div>
     </div>
 </div>
 {{--  ****** توجه کن! از این خط به بعد دیگه بیرون از grid کارت‌ها ****** --}}

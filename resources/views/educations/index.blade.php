@@ -1,109 +1,300 @@
 @extends('layouts.app')
-@section('title', __('آموزش‌ها'))
+@section('title', app()->getLocale() == 'fa' ? 'آموزش‌ها' : 'Educations')
 
 @section('content')
-<div dir="rtl" class="bg-black py-8 px-4">
-    <div class="container mx-auto">
-        <!-- متن توضیحات -->
-        <div class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-white mb-4">همین الان یاد بگیر!</h1>
-            <p class="text-white text-lg">
-                چند دقیقه وقت بذار و یک نکته از گیتار کلاسیک رو یادبگیر
-            </p>
-            <p class="text-white text-md">
-                این ویدیوی نمونه‌ای از آموزش مجموعه گیتار کلاسیک است. بخشش کن تا با شیوه و سبک آموزش بهتر آشنا شوی.
-            </p>
-        </div>
+<div class="container mx-auto px-4 py-10 min-h-screen" dir="{{ app()->getLocale() == 'fa' ? 'rtl' : 'ltr' }}">
+    <!-- توضیحات بالای صفحه -->
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-white mb-3">
+            {{ app()->getLocale() == 'fa' ? 'همین الان یاد بگیر!' : "Start Learning Now!" }}
+        </h1>
+        <p class="text-gray-200 text-lg mb-1">
+            {{ app()->getLocale() == 'fa' 
+                ? 'چند دقیقه وقت بذار و یک نکته از گیتار کلاسیک رو یادبگیر'
+                : "Spend a few minutes and learn a classical guitar tip!" }}
+        </p>
+        <p class="text-gray-400 text-md">
+            {{ app()->getLocale() == 'fa'
+                ? 'این ویدیوی نمونه‌ای از آموزش مجموعه گیتار کلاسیک است.'
+                : "This is a sample video from the classical guitar series." }}
+        </p>
+    </div>
 
-        <!-- کارت ویدیو -->
-        <div class="relative mx-auto max-w-3xl bg-white shadow-md rounded-lg overflow-hidden">
-            <div class="absolute inset-x-0 inset-y-0 flex justify-center items-center">
-                <!-- دکمه Play -->
-                <button class="bg-blue-700 flex items-center px-6 py-2 text-white rounded-lg shadow-md hover:bg-blue-800 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z" />
+    <!-- لیست کارت آموزش‌ها -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- کارت آموزش اول -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <!-- تصویر و دکمه پلی -->
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'آموزش ریتم ۲/۴' : '2/4 Rhythm Lesson' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
                     </svg>
-                    ویدیو
+                  </div>
                 </button>
             </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'آموزش ریتم ۲/۴ با مسعود' : '2/4 Rhythm Lesson with Masoud' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa' 
+                        ? 'در این دوره آموزش ریتم ۲/۴ به همراه چند نکته کاربردی یادخواهید گرفت.'
+                        : 'In this course, you will learn the 2/4 rhythm with practical tips.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: مسعود بابایی' : 'Instructor: Masoud Babaei' }}
+                </p>
+            </div>
+        </div>
+        <!-- کارت آموزش دوم -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'دوره گیتار' : 'Guitar Course' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'دوره گیتار با مهدی صفاتی - بخش ۶' : 'Guitar Course - Part 6 with Mehdi Saffati' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa' 
+                        ? 'در این بخش از دوره آموزش گیتار، جزئیات بیشتری را مشاهده می‌کنید.'
+                        : 'In this part of the guitar course, you will see more details.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: مهدی صفاتی' : 'Instructor: Mehdi Saffati' }}
+                </p>
+            </div>
+        </div>
+        <!-- کارت آموزش سوم -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'نگاهی کوتاه به ریتم' : 'A Short Look at Rhythm' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'نگاهی کوتاه به ریتم ۲/۴ با آرش یاسمینی' : 'A Short Look at 2/4 Rhythm with Arash Yasemini' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa'
+                        ? 'نگاهی دقیق به اجرای ریتم ۲/۴ با آرش یاسمینی خواهید داشت.'
+                        : 'You will have a closer look at performing 2/4 rhythm with Arash Yasemini.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: آرش یاسمینی' : 'Instructor: Arash Yasemini' }}
+                </p>
+            </div>
         </div>
 
-        <!-- توضیحات پایین -->
-        <div class="text-center mt-8">
-            <p class="text-white text-lg">
-                <span class="text-blue-700 font-bold hover:underline cursor-pointer">۴ دلیل</span> برای اینکه چرا عاشق یادگیری گیتار کلاسیک می‌شوید.
-            </p>
+
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <!-- تصویر و دکمه پلی -->
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'آموزش ریتم ۲/۴' : '2/4 Rhythm Lesson' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'آموزش ریتم ۲/۴ با مسعود' : '2/4 Rhythm Lesson with Masoud' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa' 
+                        ? 'در این دوره آموزش ریتم ۲/۴ به همراه چند نکته کاربردی یادخواهید گرفت.'
+                        : 'In this course, you will learn the 2/4 rhythm with practical tips.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: مسعود بابایی' : 'Instructor: Masoud Babaei' }}
+                </p>
+            </div>
+        </div>
+        <!-- کارت آموزش دوم -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'دوره گیتار' : 'Guitar Course' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'دوره گیتار با مهدی صفاتی - بخش ۶' : 'Guitar Course - Part 6 with Mehdi Saffati' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa' 
+                        ? 'در این بخش از دوره آموزش گیتار، جزئیات بیشتری را مشاهده می‌کنید.'
+                        : 'In this part of the guitar course, you will see more details.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: مهدی صفاتی' : 'Instructor: Mehdi Saffati' }}
+                </p>
+            </div>
+        </div>
+        <!-- کارت آموزش سوم -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'نگاهی کوتاه به ریتم' : 'A Short Look at Rhythm' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'نگاهی کوتاه به ریتم ۲/۴ با آرش یاسمینی' : 'A Short Look at 2/4 Rhythm with Arash Yasemini' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa'
+                        ? 'نگاهی دقیق به اجرای ریتم ۲/۴ با آرش یاسمینی خواهید داشت.'
+                        : 'You will have a closer look at performing 2/4 rhythm with Arash Yasemini.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: آرش یاسمینی' : 'Instructor: Arash Yasemini' }}
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <!-- تصویر و دکمه پلی -->
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'آموزش ریتم ۲/۴' : '2/4 Rhythm Lesson' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'آموزش ریتم ۲/۴ با مسعود' : '2/4 Rhythm Lesson with Masoud' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa' 
+                        ? 'در این دوره آموزش ریتم ۲/۴ به همراه چند نکته کاربردی یادخواهید گرفت.'
+                        : 'In this course, you will learn the 2/4 rhythm with practical tips.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: مسعود بابایی' : 'Instructor: Masoud Babaei' }}
+                </p>
+            </div>
+        </div>
+        <!-- کارت آموزش دوم -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'دوره گیتار' : 'Guitar Course' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'دوره گیتار با مهدی صفاتی - بخش ۶' : 'Guitar Course - Part 6 with Mehdi Saffati' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa' 
+                        ? 'در این بخش از دوره آموزش گیتار، جزئیات بیشتری را مشاهده می‌کنید.'
+                        : 'In this part of the guitar course, you will see more details.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: مهدی صفاتی' : 'Instructor: Mehdi Saffati' }}
+                </p>
+            </div>
+        </div>
+        <!-- کارت آموزش سوم -->
+        <div class="relative bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+            <div class="relative">
+                <img src="/images/All-kinds-of-musical-instruments.jpg"
+                     alt="{{ app()->getLocale() == 'fa' ? 'نگاهی کوتاه به ریتم' : 'A Short Look at Rhythm' }}"
+                     class="w-full h-52 object-cover" />
+                <div class="absolute inset-0 bg-black/60"></div>
+                <button class="absolute inset-0 flex items-center justify-center z-10">
+                  <div class="bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+            </div>
+            <div class="p-4">
+                <h2 class="text-white text-lg font-bold">
+                    {{ app()->getLocale() == 'fa' ? 'نگاهی کوتاه به ریتم ۲/۴ با آرش یاسمینی' : 'A Short Look at 2/4 Rhythm with Arash Yasemini' }}
+                </h2>
+                <p class="text-gray-300 text-sm mt-1">
+                    {{ app()->getLocale() == 'fa'
+                        ? 'نگاهی دقیق به اجرای ریتم ۲/۴ با آرش یاسمینی خواهید داشت.'
+                        : 'You will have a closer look at performing 2/4 rhythm with Arash Yasemini.' }}
+                </p>
+                <p class="text-gray-400 text-xs mt-2">
+                    {{ app()->getLocale() == 'fa' ? 'مدرس: آرش یاسمینی' : 'Instructor: Arash Yasemini' }}
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<div dir="rtl" class="bg-black py-8 px-4">
-    <div class="container mx-auto">
-        <!-- لیست کارت‌ها -->
-        <div class="grid grid-cols-1 gap-6">
-
-            <!-- کارت اول -->
-            <div class="bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
-                <!-- تصویر -->
-                <div class="w-full md:w-1/4 bg-gray-300 flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="/images/All-kinds-of-musical-instruments.jpg" alt="آموزش ریتم 2/4">
-                </div>
-                <!-- اطلاعات متن -->
-                <div class="flex-1 p-6">
-                    <h2 class="text-xl font-bold text-blue-700">آموزش ریتم ۲/۴ با مسعود</h2>
-                    <p class="text-grey-600 mt-2">در این دوره آموزش ریتم ۲/۴ به همراه چند نکته کاربردی یادخواهید گرفت.</p>
-                    <p class="text-sm text-grey-600 mt-4">مدرس: مسعود بابایی</p>
-                </div>
-                <!-- لینک ادامه مطلب -->
-                <div class="p-4 flex items-end">
-                    <a href="/lessons/1" class="text-blue-700 text-sm hover:underline">ادامه مطلب ←</a>
-                </div>
-            </div>
-
-            <!-- کارت دوم -->
-            <div class="bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
-                <!-- تصویر -->
-                <div class="w-full md:w-1/4 bg-gray-300 flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="/images/All-kinds-of-musical-instruments.jpg" alt="دوره گیتار">
-                </div>
-                <!-- اطلاعات متن -->
-                <div class="flex-1 p-6">
-                    <h2 class="text-xl font-bold text-blue-700">دوره گیتار با مهدی صفاتی - بخش ۶</h2>
-                    <p class="text-grey-600 mt-2">در این بخش از دوره آموزش گیتار، جزئیات بیشتری را مشاهده می‌کنید.</p>
-                    <p class="text-sm text-grey-600 mt-4">مدرس: مهدی صفاتی</p>
-                </div>
-                <!-- لینک ادامه مطلب -->
-                <div class="p-4 flex items-end">
-                    <a href="/lessons/2" class="text-blue-700 text-sm hover:underline">ادامه مطلب ←</a>
-                </div>
-            </div>
-
-            <!-- کارت سوم -->
-            <div class="bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
-                <!-- تصویر -->
-                <div class="w-full md:w-1/4 bg-gray-300 flex items-center justify-center">
-                    <img class="w-full h-full object-cover" src="/images/All-kinds-of-musical-instruments.jpg" alt="نگاهی کوتاه به ریتم">
-                </div>
-                <!-- اطلاعات متن -->
-                <div class="flex-1 p-6">
-                    <h2 class="text-xl font-bold text-blue-700">نگاهی کوتاه به ریتم ۲/۴ با آرش یاسمینی</h2>
-                    <p class="text-grey-600 mt-2">نگاهی دقیق به اجرای ریتم ۲/۴ با آرش یاسمینی خواهید داشت.</p>
-                    <p class="text-sm text-grey-600 mt-4">مدرس: آرش یاسمینی</p>
-                </div>
-                <!-- لینک ادامه مطلب -->
-                <div class="p-4 flex items-end">
-                    <a href="/lessons/3" class="text-blue-700 text-sm hover:underline">ادامه مطلب ←</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- دکمه مشاهده مطالب بیشتر -->
-        <div class="text-center mt-8">
-            <button class="bg-blue-700 text-white py-2 px-6 rounded-lg hover:bg-blue-800 transition">
-                مشاهده بیشتر
-            </button>
-        </div>
+    <!-- دکمه مشاهده بیشتر -->
+    <div class="text-center mt-10">
+        <button class="bg-blue-700 text-white py-2 px-8 rounded-lg hover:bg-blue-800 transition">
+            {{ app()->getLocale() == 'fa' ? 'مشاهده بیشتر آموزش‌ها' : 'See More Educations' }}
+        </button>
     </div>
 </div>
-
 @endsection

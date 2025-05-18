@@ -1,8 +1,8 @@
 <?php
 return [
-    'artist_name' => 'Mr. Taghiani',
+    'artist_name' => 'Mr. Toghyani',
     'artist_description' => 'Artist, musician, and creator of this artwork.',
-    'experience' => 'Mr. Taghiani has created unique and exceptional works with years of experience in music and art.',
+    'experience' => 'Mr. Toghyani has created unique and exceptional works with years of experience in music and art.',
     'fields' => [
         'activities' => 'He works in various artistic fields and always strives to present high-quality, distinct works.',
         'main_goal' => 'His main goal is to present art that connects emotionally with the audience.',

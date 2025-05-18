@@ -114,6 +114,42 @@ document.addEventListener('DOMContentLoaded', function () {
       header.classList.remove('border-b', 'border-dark-border', 'shadow-lg', 'bg-opacity-95');
     }
   });
+
+
+
+  const menuBtn = document.getElementById('open-menu-btn');
+const closeBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('translate-x-full');
+  mobileMenu.classList.add('translate-x-0');
+  closeBtn.classList.remove('hidden');
+  menuBtn.classList.add('hidden');
+  // prevent body scroll
+  document.body.classList.add('overflow-hidden');
 });
+closeBtn.addEventListener('click', () => {
+  mobileMenu.classList.add('translate-x-full');
+  mobileMenu.classList.remove('translate-x-0');
+  closeBtn.classList.add('hidden');
+  menuBtn.classList.remove('hidden');
+  // enable scroll again
+  document.body.classList.remove('overflow-hidden');
+});
+// optionally: hide menu on mobile nav link click
+document.querySelectorAll('#mobileMenu a').forEach(link =>
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('translate-x-full');
+    closeBtn.classList.add('hidden');
+    menuBtn.classList.remove('hidden');
+    document.body.classList.remove('overflow-hidden');
+  })
+);
+});
+
+
+
+
 
 
