@@ -2,15 +2,18 @@
 @section('title', __('آموزش‌ها'))
 
 @section('content')
-
-<body class="bg-bg3 text-light leading-relaxed">
+@section('canvas')
+    <!-- Canvas element for animation -->
+    <canvas id="bgCanvas"></canvas>
+@endsection
+<body class=" text-light leading-relaxed bg-black bg-opacity-60">
 
   <!-- About Section -->
   <section id="about" class="mt-52 px-6">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-[10rem_26rem_auto] gap-12 relative">
       
       <!-- About Title -->
-      <h2 class="absolute -top-28 text-4xl md:text-5xl font-light text-white z-[999]">
+      <h2 class="absolute -top-28 text-4xl md:text-5xl font-light text-white z-[9]">
         {{ __('biography.section_title_1') }}<br />{{ __('biography.section_title_2') }}
       </h2>
       
