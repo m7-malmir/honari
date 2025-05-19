@@ -6,8 +6,8 @@
     <!-- Canvas element for animation -->
     <canvas id="bgCanvas"></canvas>
 @endsection
-<body class=" text-light leading-relaxed bg-black bg-opacity-60">
-
+<body class=" text-light leading-relaxed ">
+  <div class="relative w-screen h-screen flex items-center justify-center bg-black bg-opacity-60">
   <!-- About Section -->
   <section id="about" class="mt-52 px-6">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-[10rem_26rem_auto] gap-12 relative">
@@ -77,7 +77,7 @@
     </div>
     </div>
   </section>
-
+  </div>
 </body>
 </html>
 
