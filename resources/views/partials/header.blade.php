@@ -2,13 +2,17 @@
     dir="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }}"
     class="w-full bg-[#191c24] sticky top-0 z-30 transition-all duration-300 py-4 border-b border-black/10 shadow-none">
 
-    <div class="container mx-auto flex items-center justify-between px-4">
-        <!-- لوگو یا نام سایت -->
-        <h1 class="text-lg md:text-xl text-white font-bold">
-            {{ app()->getLocale() === 'fa' ? 'وب‌سایت هنری آقای طغیانی' : "Mr. Toghyani Art Website" }}
-        </h1>
+    <div class="container mx-auto flex items-center justify-between px-4 relative">
+        <!-- لوگوی دسکتاپ (فقط تو دسکتاپ) -->
+        <a href="/"
+            class="hidden md:block absolute -top-6 {{ app()->getLocale()=='fa' ? 'right-2 md:right-8' : 'left-2 md:left-8'}} z-20"
+            aria-label="خانه">
+            <img src="{{ asset('images/ggg.png') }}"
+                alt="Taghiyani Logo"
+                class="h-20 w-20 md:h-28 md:w-28 lg:h-36 lg:w-36 object-contain select-none drop-shadow-xl transition-all duration-300">
+        </a>
 
-        <!-- منو دسکتاپ (همیشه وسط) -->
+        <!-- منوی دسکتاپ -->
         <nav class="flex-1">
             <ul class="hidden md:flex justify-center items-center gap-x-6 text-white">
                 <li>
@@ -40,98 +44,62 @@
             @endif
         </div>
 
-        <!-- دکمه موبایل -->
+        <!-- دکمه باز کردن منوی موبایل (برگر) فقط در موبایل  -->
         <button class="flex md:hidden items-center justify-center p-2 rounded menu-btn" id="open-menu-btn">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
-        <button class="hidden md:hidden items-center justify-center p-2 rounded close-menu-btn" id="close-menu-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
+        <!-- دکمه بستن منو از اینجا حذف شد -->
     </div>
 
-    <!-- منوی موبایل -->
+    <!-- منوی موبایل با لوگو و دکمه بستن -->
     <div id="mobileMenu" class="fixed top-0 right-0 w-[17rem] h-full bg-[#202026] z-50 shadow-2xl transition-transform duration-300 transform translate-x-full md:hidden">
-        <ul class="flex flex-col gap-0 mt-16 animate-fade-in">
-            <li class="border-b border-gray-800 animate-menuItem">
-                <a href="/" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.home') }}</a>
-            </li>
-            <li class="border-b border-gray-800 animate-menuItem delay-[150ms]">
-                <a href="/biography" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.biography') }}</a>
-            </li>
-            <li class="border-b border-gray-800 animate-menuItem delay-[300ms]">
-                <a href="/video-list" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.videos') }}</a>
-            </li>
-            <li class="border-b border-gray-800 animate-menuItem delay-[450ms]">
-                <a href="/music-list" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.musics') }}</a>
-            </li>
-            <li class="animate-menuItem delay-[600ms]">
-                <a href="/educations" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.education') }}</a>
-            </li>
-            <!-- سوییچ زبان -->
-            <li class="mt-4 mb-2 text-center">
-                @if(app()->getLocale() === 'en')
-                    <a href="{{ route('lang.switch', ['locale' => 'fa']) }}"
-                       class="inline-block bg-purple-600 text-white font-bold text-xs rounded px-5 py-2 hover:bg-purple-700 transition">FA</a>
-                @else
-                    <a href="{{ route('lang.switch', ['locale' => 'en']) }}"
-                       class="inline-block bg-orange-400 text-black font-bold text-xs rounded px-5 py-2 hover:bg-orange-500 transition">ENG</a>
-                @endif
-            </li>
-        </ul>
+        <div class="flex flex-col">
+            <!-- ردیف بالا: دکمه بستن و لوگو -->
+            <div class="flex items-center justify-between px-4 pt-4 mb-3">
+                <!-- دکمه بستن (درست در ابتدا، بسته به زبان راست یا چپ) -->
+                <button class="{{ app()->getLocale() === 'fa' ? 'order-1' : 'order-2' }} p-2" id="close-menu-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <!-- لوگو (وسط، فقط در موبایل منو) -->
+                <a href="/" aria-label="خانه" class="flex-1 flex justify-center">
+                    <img src="{{ asset('images/ggg.png') }}"
+                         alt="Taghiyani Logo"
+                         class="h-16 w-16 object-contain select-none drop-shadow-xl">
+                </a>
+                <!-- جای خالی برای نظم چینش (توی flex) -->
+                <span class="w-8 h-8 invisible"></span>
+            </div>
+            <!-- لیست منو -->
+            <ul class="flex flex-col gap-0 animate-fade-in">
+                <li class="border-b border-gray-800 animate-menuItem">
+                    <a href="/" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.home') }}</a>
+                </li>
+                <li class="border-b border-gray-800 animate-menuItem delay-[150ms]">
+                    <a href="/biography" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.biography') }}</a>
+                </li>
+                <li class="border-b border-gray-800 animate-menuItem delay-[300ms]">
+                    <a href="/video-list" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.videos') }}</a>
+                </li>
+                <li class="border-b border-gray-800 animate-menuItem delay-[450ms]">
+                    <a href="/music-list" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.musics') }}</a>
+                </li>
+                <li class="animate-menuItem delay-[600ms]">
+                    <a href="/educations" class="block py-5 px-8 hover:bg-blue-700 hover:text-white font-semibold text-blue-200 text-center">{{ __('menu.education') }}</a>
+                </li>
+                <li class="mt-4 mb-2 text-center">
+                    @if(app()->getLocale() === 'en')
+                        <a href="{{ route('lang.switch', ['locale' => 'fa']) }}"
+                        class="inline-block bg-purple-600 text-white font-bold text-xs rounded px-5 py-2 hover:bg-purple-700 transition">FA</a>
+                    @else
+                        <a href="{{ route('lang.switch', ['locale' => 'en']) }}"
+                        class="inline-block bg-orange-400 text-black font-bold text-xs rounded px-5 py-2 hover:bg-orange-500 transition">ENG</a>
+                    @endif
+                </li>
+            </ul>
+        </div>
     </div>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-const header = document.getElementById('mainHeader');
-const menuBtn = document.getElementById('open-menu-btn');
-const closeBtn = document.getElementById('close-menu-btn');
-const mobileMenu = document.getElementById('mobileMenu');
-
-// **نکته: چک کن این‌ها درست شناسایی می‌شوند**
-console.log('header:', header, 'menuBtn:', menuBtn, 'closeBtn:', closeBtn, 'mobileMenu:', mobileMenu);
-
-// تغییر رنگ هدر هنگام اسکرول
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 10) {
-    header.classList.add('border-b', 'border-dark-border', 'shadow-lg', 'bg-opacity-95', 'bg-[#23263a]');
-    header.classList.remove('bg-[#191c24]');
-  } else {
-    header.classList.remove('border-b', 'border-dark-border', 'shadow-lg', 'bg-opacity-95', 'bg-[#23263a]');
-    header.classList.add('bg-[#191c24]');
-  }
-});
-
-// باز کردن منو موبایل
-menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('translate-x-full');
-  mobileMenu.classList.add('translate-x-0');
-  closeBtn.classList.remove('hidden');
-  menuBtn.classList.add('hidden');
-  document.body.classList.add('overflow-hidden');
-});
-
-// بستن منو موبایل
-closeBtn.addEventListener('click', () => {
-  mobileMenu.classList.add('translate-x-full');
-  mobileMenu.classList.remove('translate-x-0');
-  closeBtn.classList.add('hidden');
-  menuBtn.classList.remove('hidden');
-  document.body.classList.remove('overflow-hidden');
-});
-
-// بستن منو هنگام کلیک روی لینک‌ها (اختیاری)
-document.querySelectorAll('#mobileMenu a').forEach(link =>
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('translate-x-full');
-    closeBtn.classList.add('hidden');
-    menuBtn.classList.remove('hidden');
-    document.body.classList.remove('overflow-hidden');
-  })
-);
-});
-</script>
