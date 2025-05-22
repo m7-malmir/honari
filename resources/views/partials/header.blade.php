@@ -8,9 +8,10 @@
         <a href="/"
            class="desktop-logo md:block absolute -top-6 {{ app()->getLocale()=='fa' ? 'right-2 md:right-8' : 'left-2 md:left-8'}} z-20"
            aria-label="خانه">
-            <img src="{{ asset('images/ggg.png') }}"
-                alt="Taghiyani Logo"
-                class="h-20 w-20 md:h-28 md:w-28 lg:h-36 lg:w-36 object-contain select-none drop-shadow-xl transition-all duration-300">
+           <img src="{{ asset('images/ggg.png') }}"
+           alt="Taghiyani Logo"
+           class="w-16 h-16 object-contain select-none drop-shadow-xl transition-all duration-300">
+      
         </a>
 
         <!-- منوی دسکتاپ -->
@@ -140,7 +141,14 @@ document.addEventListener('DOMContentLoaded', function () {
         body.classList.remove('mobile-menu-open');
     });
 
-    // منع اسکرول حتی وقتی با gesture موبایل منو باز میمونه
-    // اگر خواستی روی پس زمینه موبایل منو کلیک کنی و بسته بشه اضافه کن
+    // راه حل: رفع باگ نمای دسکتاپ بعد از باز بودن منوی موبایل
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) {
+            header.classList.remove('hide-desktop');
+            mobileMenu.classList.add('translate-x-full');
+            body.classList.remove('mobile-menu-open');
+        }
+    });
 });
+
 </script>

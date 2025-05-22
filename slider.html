@@ -1,0 +1,72 @@
+let durationString = '';
+let currentAudio = document.getElementById('audio-player');
+
+document.addEventListener('DOMContentLoaded', function () {
+    // مقداردهی اولیه
+    currentAudio.volume = document.getElementById('player-volume').value;
+    setMeta('تصویر کاور', 'الیاس طغیانی', '{{ asset('images/2-150x150.jpg') }}', '02:24');
+    updateTimes(0, 0);
+});
+
+currentAudio.ontimeupdate = updatePlayerProgress;
+currentAudio.onloadedmetadata = function () {
+    updateTimes(0, currentAudio.duration);
+    durationString = formatTime(currentAudio.duration);
+};
+
+function updatePlayerProgress() {
+    const audio = currentAudio;
+    const progressBar = document.getElementById('player-progress-bar');
+    if (!audio) return;
+    const percent = (!isNaN(audio.duration) && audio.duration > 0) ? (audio.currentTime / audio.duration) * 100 : 0;
+    if(progressBar) progressBar.style.width = percent + '%';
+    updateTimes(audio.currentTime, audio.duration);
+}
+
+function updateTimes(current, duration) {
+    document.getElementById('player-current').innerText = formatTime(current);
+    document.getElementById('player-total').innerText = isNaN(duration) ? (durationString || "00:00") : formatTime(duration);
+}
+
+function toggleMusic() {
+    if (!currentAudio) return;
+    currentAudio.paused ? currentAudio.play() : currentAudio.pause();
+}
+
+function changeVolume(el) {
+    if (!currentAudio) return;
+    currentAudio.volume = el.value;
+}
+
+function changeIcon(state){
+    const playIcon = document.getElementById('play-icon');
+    if(state === 'pause') {
+        playIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>`;
+    } else {
+        playIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.586-3.763A1 1 0 007 8.16v7.679a1 1 0 001.166.987L14.752 13.832a1 1 0 000-2.664z"/></svg>`;
+    }
+}
+
+function prevTrack(){
+    // اینجا میتونی کد قبلی آهنگ رو بذاری
+}
+
+function nextTrack(){
+    // اینجا میتونی کد بعدی آهنگ رو بذاری
+}
+
+function setMeta(title, artist, cover, duration){
+    document.getElementById('player-title').innerText = title;
+    document.getElementById('player-artist').innerText = artist;
+    document.getElementById('player-cover').src = cover;
+    durationString = duration;
+}
+
+function formatTime(sec) {
+    if (isNaN(sec)) return '00:00';
+    sec = Math.floor(sec);
+    const m = Math.floor(sec / 60);
+    let s = sec % 60;
+    if (s < 10) s = '0' + s;
+    return `${m}:${s}`;
+}

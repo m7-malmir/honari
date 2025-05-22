@@ -1,41 +1,116 @@
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Boxicons CDN -->
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<div class="min-h-screen flex items-center justify-center bg-gray-100">
-  <article class="relative group bg-white rounded-2xl shadow-lg overflow-hidden w-80">
-    <div class="rounded-2xl overflow-hidden relative">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=600&h=300" alt="" class="w-full h-56 object-cover">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>علی زندوکیلی | وب‌سایت رسمی</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- هدر -->
+  <header class="bg-gray-100 shadow">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-bold">علی زندوکیلی</h1>
+      <nav>
+        <ul class="flex space-x-4 space-x-reverse">
+          <li><a href="#" class="hover:text-blue-500">صفحه اصلی</a></li>
+          <li><a href="#" class="hover:text-blue-500">درباره من</a></li>
+          <li><a href="#" class="hover:text-blue-500">دیسکوگرافی</a></li>
+          <li><a href="#" class="hover:text-blue-500">کنسرت‌ها</a></li>
+          <li><a href="#" class="hover:text-blue-500">تماس</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="relative w-full overflow-hidden" dir="rtl">
+    <!-- اسلایدها -->
+    <div id="slider" class="flex transition-transform duration-700 ease-in-out">
+      <div class="min-w-full h-[400px] bg-cover bg-center" style="background-image: url('/images/slide1.jpg');"></div>
+      <div class="min-w-full h-[400px] bg-cover bg-center" style="background-image: url('/images/slide2.jpg');"></div>
+      <div class="min-w-full h-[400px] bg-cover bg-center" style="background-image: url('/images/slide3.jpg');"></div>
+    </div>
+  
+    <!-- دکمه‌های کنترل -->
+    <button onclick="prevSlide()" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-70 px-2 py-1 rounded-full shadow">
+      ◀
+    </button>
+    <button onclick="nextSlide()" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-70 px-2 py-1 rounded-full shadow">
+      ▶
+    </button>
+  
+    <!-- نقاط ناوبری -->
+    <div class="absolute bottom-4 right-1/2 translate-x-1/2 flex space-x-2 space-x-reverse">
+      <span class="dot w-3 h-3 bg-white rounded-full opacity-70 cursor-pointer" onclick="goToSlide(0)"></span>
+      <span class="dot w-3 h-3 bg-white rounded-full opacity-40 cursor-pointer" onclick="goToSlide(1)"></span>
+      <span class="dot w-3 h-3 bg-white rounded-full opacity-40 cursor-pointer" onclick="goToSlide(2)"></span>
+    </div>
+  </div>
+  
+  <!-- بخش اصلی -->
+  <main class="container mx-auto p-4">
+    <section class="text-center my-8">
+      <h2 class="text-2xl font-semibold mb-4">آهنگ جدید: گل سرخ</h2>
+      <p class="mb-4">تاریخ انتشار: ۲۵ بهمن ۱۳۹۷</p>
+      <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded">پخش آنلاین</a>
+    </section>
 
-      <!-- لایه گرادینت با رنگ پررنگ‌تر و سرعت بیشتر -->
-      <span class="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-all duration-700 ease-in-out z-10 pointer-events-none rounded-2xl"
-        style="background: linear-gradient(125deg, rgba(0,212,255,0.35) 40%, rgba(9,85,200,0.40));">
-      </span>
-      
-      <!-- شبکه‌های اجتماعی -->
-      <div class="absolute right-4 top-4 flex flex-col gap-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 z-20">
-        <a href="#" class="bg-white text-purple-700 w-10 h-10 flex items-center justify-center rounded-full hover:bg-purple-700 hover:text-white transition">
-          <i class='bx bxl-linkedin text-xl'></i>
-        </a>
-        <a href="#" class="bg-white text-purple-700 w-10 h-10 flex items-center justify-center rounded-full hover:bg-purple-700 hover:text-white transition">
-          <i class='bx bxl-twitter text-xl'></i>
-        </a>
-        <a href="#" class="bg-white text-purple-700 w-10 h-10 flex items-center justify-center rounded-full hover:bg-purple-700 hover:text-white transition">
-          <i class='bx bxl-facebook text-xl'></i>
-        </a>
-        <a href="#" class="bg-white text-purple-700 w-10 h-10 flex items-center justify-center rounded-full hover:bg-purple-700 hover:text-white transition">
-          <i class='bx bxl-instagram text-xl'></i>
-        </a>
+    <!-- گالری آلبوم‌ها -->
+    <section class="my-8">
+      <h3 class="text-xl font-semibold mb-4">آلبوم‌ها</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-gray-100 p-4 rounded shadow">
+          <img src="album1.jpg" alt="آلبوم ۱" class="mb-2">
+          <h4 class="font-semibold">رویای بی‌تکرار</h4>
+        </div>
+        <div class="bg-gray-100 p-4 rounded shadow">
+          <img src="album2.jpg" alt="آلبوم ۲" class="mb-2">
+          <h4 class="font-semibold">یادی به رنگ امروز</h4>
+        </div>
+        <div class="bg-gray-100 p-4 rounded shadow">
+          <img src="album3.jpg" alt="آلبوم ۳" class="mb-2">
+          <h4 class="font-semibold">آلبوم جدید</h4>
+        </div>
       </div>
-      <!-- واتس اپ -->
-      <a href="#"
-        class="absolute left-1/2 -translate-x-1/2 bottom-1/3 bg-green-400 text-white w-14 h-14 flex items-center justify-center rounded-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 shadow-lg z-20">
-        <i class='bx bxl-whatsapp text-2xl'></i>
-      </a>
-    </div>
-    <div class="py-6 text-center relative z-20 bg-white">
-      <h4 class="font-bold text-lg text-gray-800">Sara Sabahi</h4>
-      <small class="block text-gray-500 mt-1">Surgery Specialist</small>
-    </div>
-  </article>
-</div>
+    </section>
+  </main>
+
+  <!-- فوتر -->
+  <footer class="bg-gray-100 text-center p-4 mt-8">
+    <p>© 2025 علی زندوکیلی. تمامی حقوق محفوظ است.</p>
+  </footer>
+</body>
+</html>
+
+
+
+<script>
+  let currentSlide = 0;
+  const slider = document.getElementById("slider");
+  const dots = document.querySelectorAll(".dot");
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("opacity-70", index === currentSlide);
+      dot.classList.toggle("opacity-40", index !== currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % 3;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + 3) % 3;
+    updateSlider();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+  }
+
+  // اتوپلی
+  setInterval(nextSlide, 5000);
+</script>
