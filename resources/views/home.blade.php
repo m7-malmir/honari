@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 @section('content')
 <div class="w-screen max-w-none h-[500px] sm:h-[800px] relative bg-black">
     <div class="w-full h-full relative">
@@ -166,7 +167,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         // مقداردهی اولیه
         currentAudio.volume = document.getElementById('player-volume').value;
-        setMeta('تصویر کاور', 'الیاس طغیانی', '{{ asset('images/2-150x150.jpg') }}', '02:24');
+        setMeta('Elyas Toghyani', 'Pure Tranquility', '{{ asset('images/2-150x150.jpg') }}', '02:24');
         updateTimes(0, 0);
     });
 
