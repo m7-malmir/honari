@@ -55,7 +55,7 @@
     </div>
 
     <!-- منوی موبایل با لوگو و دکمه بستن -->
-    <div id="mobileMenu" class="fixed top-0 right-0 w-[17rem] h-full bg-[#202026] z-50 shadow-2xl transition-transform duration-300 transform translate-x-full md:hidden">
+    <div id="mobileMenu" class="fixed top-0 right-0 w-[17rem] h-full bg-[#202026] z-100 shadow-2xl transition-transform duration-300 transform translate-x-full md:hidden">
         <div class="flex flex-col h-full">
             <!-- ردیف بالا: دکمه بستن و لوگو -->
             <div class="flex items-center justify-between px-4 pt-4 mb-3">
@@ -122,6 +122,45 @@ body.mobile-menu-open {
 }
 </style>
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const openBtn = document.getElementById('open-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const header = document.getElementById('mainHeader');
+    const body = document.body;
+    const playerBar = document.getElementById('music-player-bar'); // اضافه کن
+
+    openBtn.addEventListener('click', function () {
+        mobileMenu.classList.remove('translate-x-full');
+        header.classList.add('hide-desktop');
+        body.classList.add('mobile-menu-open');
+
+        // پلیر رو مخفی کن
+        if(playerBar) playerBar.style.display = 'none';
+    });
+
+    closeBtn.addEventListener('click', function () {
+        mobileMenu.classList.add('translate-x-full');
+        header.classList.remove('hide-desktop');
+        body.classList.remove('mobile-menu-open');
+
+        // پلیر رو نمایش بده
+        if(playerBar) playerBar.style.display = 'flex'; // یا block بسته به استایلت
+    });
+
+    // راه حل: رفع باگ نمای دسکتاپ بعد از باز بودن منوی موبایل
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) {
+            header.classList.remove('hide-desktop');
+            mobileMenu.classList.add('translate-x-full');
+            body.classList.remove('mobile-menu-open');
+
+            // پلیر رو همیشه نمایش بده
+            if(playerBar) playerBar.style.display = 'flex'; // یا block  
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     const openBtn = document.getElementById('open-menu-btn');
     const closeBtn = document.getElementById('close-menu-btn');
@@ -149,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
             body.classList.remove('mobile-menu-open');
         }
     });
+    
 });
 
 </script>
